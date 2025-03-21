@@ -855,106 +855,108 @@ function prompt(promptText, traceText, shorten) {
 }
 
 function samplePrompt() {
-    return "\"def sum_list(lst1,lst2):\n" +
-        "\"\"\"\n" +
-        "Takes as input two lists [a_1,...,a_n], [b_1,...,b_n] and returns [a_1+b_1,...,a_n+b_n].\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"from itertools import groupby\n" +
-        "\n" +
-        "def pack_consecutive_duplicates(list1):\n" +
-        "\"\"\"\n" +
-        "Pack consecutive duplicates of a given list elements into sublists.\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"def is_nonagonal(n):\n" +
-        "\"\"\"\n" +
-        "Finds the nth nonagonal number.\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"import numpy as np\n" +
-        "\n" +
-        "\n" +
-        "def rotate_puzzle_piece(puzzle: list) -> np.ndarray:\n" +
-        "\"\"\"\n" +
-        "You are developing a game that involves puzzle mechanics where players need to rotate pieces to fit into a specific pattern.\n" +
-        "The puzzle pieces are represented as numpy arrays of dimension [2 x num_pieces]. Each column corresponds to the [x, y] coordinates.\n" +
-        "In order to solve a particular level, a player needs to rotate a given puzzle piece 90 degrees counterclockwise.\n" +
-        "\n" +
-        "\n" +
-        "Takes a 2D matrix representing the puzzle piece as an input and returns a new 2D matrix representing the puzzle\n" +
-        "piece after it has been rotated 90 degrees counterclockwise.\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"import pandas as pd\n" +
-        "\n" +
-        "def pd_row_sum_with_next(df: pd.DataFrame) -> pd.DataFrame:\n" +
-        "\"\"\"\n" +
-        "Takes a pandas DataFrame `df` and returns a new DataFrame with the same columns as `df` and one additional column `sum` such that df.iloc[i].sum contains df.value.iloc[i] + df.value.iloc[i+1] if i > len(df) and df.iloc[i].diff contains df.value.iloc[i] otherwise.\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"def maxAverageOfPath(cost):\n" +
-        "\"\"\"\n" +
-        "Given a square matrix of size N*N given as a list of lists, where each cell is associated with a specific cost. A path is defined as a specific sequence of cells that starts from the top-left cell move only right or down and ends on bottom right cell. We want to find a path with the maximum average over all existing paths. Average is computed as total cost divided by the number of cells visited in the path.\n" +
-        "\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"from typing import List, Tuple\n" +
-        "import numpy as np\n" +
-        "\n" +
-        "def burnside_lemma_orbit_count(group_elements: List[np.ndarray], object_set: List[np.ndarray]) -> int:\n" +
-        "\"\"\"\"\"\"\n" +
-        "Computes the number of distinct objects under the action of a given group using Burnside's Lemma.\n" +
-        "\n" +
-        "Burnside's Lemma states that the number of distinct objects (orbits) under a group action is given by:\n" +
-        "\n" +
-        "|X/G| = (1 / |G|) * sum(|X^g| for g in G)\n" +
-        "\n" +
-        "where:\n" +
-        "- |X/G| is the number of distinct objects.\n" +
-        "- |G| is the number of group elements.\n" +
-        "- X^g is the set of elements in X that remain unchanged under transformation g.\n" +
-        "\n" +
-        "Example:\n" +
-        ">>> import numpy as np\n" +
-        ">>> g1 = np.array([[0, 1], [1, 0]])\n" +
-        ">>> g2 = np.array([[1, 0], [0, 1]])\n" +
-        ">>> obj1 = np.array([[1, 2], [2, 1]])\n" +
-        ">>> obj2 = np.array([[2, 1], [1, 2]])\n" +
-        ">>> burnside_lemma_orbit_count([g1, g2], [obj1, obj2])\n" +
-        "1\n" +
-        "\"\"\"\"\"\"\"\n" +
-        "---------------------------------------------------------------------------------------------" +
-        "\"def dynamic_connectivity(n: int, events: list) -> list:\n" +
+    return "\"def get_linux_file_perm_from_octet(user: int, group: int, others: int) -> str:\n" +
         " \"\"\"\"\"\"\n" +
-        " Process a sequence of events (edge additions, removals, and connectivity queries) on an undirected graph with n nodes.\n" +
-        " Each event is a tuple: (\"\"add\"\", u, v), (\"\"remove\"\", u, v), or (\"\"query\"\", u, v) with nodes 1-indexed.\n" +
-        " \n" +
-        " The function should process events in the given order:\n" +
-        " - \"\"add\"\": Add an undirected edge between nodes u and v. If the same edge is added multiple times, subsequent additions are ignored.\n" +
-        " - \"\"remove\"\": Remove the edge between nodes u and v if it exists; if the edge does not exist, do nothing.\n" +
-        " - \"\"query\"\": Determine whether nodes u and v are connected, i.e., if there exists a path (via edges currently present in the graph) between them.\n" +
-        " \n" +
-        " Special Cases:\n" +
-        " - If the events list is empty, return -1.\n" +
-        " - If any event contains a negative node value, raise a RuntimeError with the error message \"\"input cannot be a negative value\"\".\n" +
-        " \n" +
+        " Converts three numeric octets (0-7) representing user, group, and others permissions to a Linux file permission string.\n" +
+        "\n" +
         " Args:\n" +
-        " n: int - number of nodes in the graph\n" +
-        " events: list[tuple[str, int, int]] - list of events in order\n" +
-        " \n" +
-        " Return:\n" +
-        " list[bool] - connectivity answers for each query in the order of occurrence, or -1 when events is empty\n" +
-        " \n" +
-        " Raises:\n" +
-        " RuntimeError: if any node in an event is a negative value, with message \"\"input cannot be a negative value\"\"\n" +
-        " \n" +
+        " user (int): The numeric octet representing user permissions (0-7).\n" +
+        " group (int): The numeric octet representing group permissions (0-7).\n" +
+        " others (int): The numeric octet representing others permissions (0-7).\n" +
+        "\n" +
+        " Returns:\n" +
+        " str: The Linux file permission string (e.g., 'rwxr-xr--').\n" +
+        "\n" +
         " Examples:\n" +
-        " >>> dynamic_connectivity(4, [(\"\"add\"\", 1, 2), (\"\"query\"\", 1, 2)])\n" +
-        " [True]\n" +
-        " >>> dynamic_connectivity(3, [(\"\"add\"\", 1, 2), (\"\"remove\"\", 1, 2), (\"\"query\"\", 1, 2)])\n" +
-        " [False]\n" +
-        " >>> dynamic_connectivity(4, [])\n" +
-        " -1\n" +
+        " >>> GetLinuxFilePermFromOctet(7, 5, 4)\n" +
+        " 'rwxr-xr--'\n" +
+        "\n" +
+        " >>> GetLinuxFilePermFromOctet(4, 4, 4)\n" +
+        " 'r--r--r--'\n" +
+        " \"\"\"\"\"\"\"\n" +
+        "\"#include <iostream>\n" +
+        "#include <string>\n" +
+        "#include <unordered_map>\n" +
+        "\n" +
+        "using namespace std;\n" +
+        "\n" +
+        "/**\n" +
+        " * Given a positive integer n, determine if it is a mirror number.\n" +
+        " *\n" +
+        " * A mirror number is a number where if you replace certain digits with their mirror image,\n" +
+        " * you get the same number when viewed upside down.\n" +
+        " * Valid mirror pairs are: 0->0, 1->1, 6->9, 8->8, 9->6\n" +
+        " * \n" +
+        " * @param n - Input number (1 ≤ n ≤ 10000)\n" +
+        " * @return True if n is a mirror number, false otherwise\n" +
+        " *\n" +
+        " * Example:\n" +
+        " * isMirrorNumber(619)\n" +
+        " * // result is True, because when turned upside down 619 becomes 916, which is valid\n" +
+        " *\n" +
+        " * isMirrorNumber(123)\n" +
+        " * // result if False\n" +
+        " */\n" +
+        "bool isMirrorNumber(int n) {}\"\n" +
+        "\"def give_sweets(happiness: List[List[int]]) -> int:\n" +
+        " \"\"\"\"\"\"\n" +
+        " Implements a distributing sweets algorithm in a neighborhood with M different types of sweets and N houses.\n" +
+        " The algorithm follows these rules:\n" +
+        "\n" +
+        " 1. Gives exactly one sweet to each house\n" +
+        " 2. Adjacent houses cannot receive the same type of sweet (e.g., if house 0 gets sweet type 2, house 1 cannot get sweet type 2)\n" +
+        " 3. The goal is to minimize the total happiness (sum of happiness values) across all houses\n" +
+        "\n" +
+        " Args:\n" +
+        " happiness (List[List[int]]): A MxN matrix where happiness[i][j] indicates the happiness of house i after getting sweet type j\n" +
+        "\n" +
+        " Returns:\n" +
+        " int: The minimum possible total happiness achievable. If the matrix is empty, returns 0.\n" +
+        "\n" +
+        " Raises:\n" +
+        " ValueError: If any happiness value is negative or the matrix has an incorrect format.\n" +
+        "\n" +
+        " Examples:\n" +
+        "\n" +
+        " >>> give_sweets([[1, 5, 3], [2, 9, 4]])\n" +
+        " 5\n" +
+        " Explanation: Give sweet type 0 to house 0 (happiness 1) and sweet type 2 to house 1 (happiness 4). Total: 1+4=5.\n" +
+        "\n" +
+        " >>> give_sweets([[3, 1, 2]])\n" +
+        " 1\n" +
+        " Explanation: Give sweet type 1 to house 0 (happiness 1). Total: 1.\n" +
+        " \"\"\"\"\"\"\"\n" +
+        "\"def count_good_permutations(s: str) -> int:\n" +
+        " \"\"\"\"\"\"\n" +
+        " Counts the number of distinct permutations of s optimally that satisfy the \"\"good\"\" condition.\n" +
+        "\n" +
+        " A permutation is \"\"good\"\" if:\n" +
+        " - Characters at even indices (0-based) are added to the sum (ASCII value).\n" +
+        " - Characters at odd indices are subtracted from the sum.\n" +
+        " - The final computed sum is 0.\n" +
+        "\n" +
+        " Note:\n" +
+        " - Duplicate characters in the string should be handled such that permutations that are identical \n" +
+        " when considering character positions are counted only once. In other words, even if characters \n" +
+        " appear multiple times, only distinct arrangements are considered.\n" +
+        " - The input string's length can be up to 10^5 characters, so the solution must be efficient \n" +
+        " (ideally linear or quasi-linear in time complexity relative to the length of the string).\n" +
+        "\n" +
+        " Args:\n" +
+        " s (str): A non-empty string of lowercase English letters.\n" +
+        "\n" +
+        " Returns:\n" +
+        " int: The number of good permutations modulo 10^9 + 7.\n" +
+        "\n" +
+        " Raises:\n" +
+        " ValueError(\"\"Input must be a non-empty string of lowercase English letters.\"\"): If the input is not a valid lowercase string.\n" +
+        "\n" +
+        " Examples:\n" +
+        " >>> count_good_permutations(\"\"abc\"\")\n" +
+        " 2\n" +
+        "\n" +
+        " >>> count_good_permutations(\"\"aabb\"\")\n" +
+        " 4\n" +
         " \"\"\"\"\"\"\""
 }
 
