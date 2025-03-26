@@ -347,7 +347,7 @@ function extractCodeSnippets(avoidSmartScreen) {
 
         responses.forEach((response, responseIndex) => {
             let matches = [];
-            if (responseIndex !== 2) {
+            if (responseIndex !== 3) {
                 const rawHtml = response.innerHTML;
 
                 const decodeHTML = (html) => {
@@ -825,7 +825,7 @@ function promptV2(promptText, answer, traceText) {
         "to each unit test in the form of: {test name} - (PASS/FAIL) + (in doing something/because of something)\n" +
         "For example, with 1157680/test.py::TestModularInverse::test_basic_cases PASSED, you can say Test basic cases - " +
         "PASSED in handling basic cases for Modular Inverse. Same thing, if test, fails, say FAILED because something " +
-        "something. Accuracy justification should provide insight on how the model response could pass or fail with " +
+        "something. Also, if it fails, please briefly cover how to make test work. Accuracy justification should provide insight on how the model response could pass or fail with " +
         "logical code explanation, especially the case when it fails!\n You can get this info by looking at " +
         "both the answer and the trace." +
         "\nPut each test justification in a line, and MUST wrap the whole answer in a copiable block." +
